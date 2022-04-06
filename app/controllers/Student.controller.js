@@ -87,8 +87,8 @@ exports.update = (req, res) => {
     try{
       const student1=await Student.save(Student)
       res.send(student1)
-      cron.schedule('*/30 * * * * *', async() => {
-        console.log('running a task');
+      cron.schedule('*/30 * * * *', async() => {
+        console.log('running a task on every half hour');
         try{
           var update={timestamps:true}
           await student1.updateOne(update);
